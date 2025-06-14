@@ -57,8 +57,8 @@ const TodoList = () => {
   }
 
   return (
-    <div className='bg-gray-700 shadow-lg h-200 rounded-2xl '>
-
+    <div className='bg-gray-700 shadow-lg h-auto max-h-full overflow-y-auto'>
+   
       <nav className='top-0 left-0 w-fullrounded-lg bg-gray-700  text-white px-6 py-4'>
         <h1 className=' flex justify-center text-4xl font-thin text-red'><span className='text-black'>Hey! </span> Do Your Task </h1>
       </nav>
@@ -89,13 +89,13 @@ const TodoList = () => {
         <div className='w-100 h-100 text-white mt-5 '>
           {filteredTasks.map((task) =>
           (
-            <li key={task.id} style={{ marginBottom: '5px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px', borderRadius: '5px', border: '1px solid gray' }} className={task.completed ? "completed" : ""}>
-              <span className="text-2xl font-thin m-1 px-3">{task.text}</span>
-              <div >
-                <button className="font text-3xl text-red-400 mx-1 active:scale-95 transition-transform duration-150" onClick={() => deleteTask(task.id)}><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            <li key={task.id} style={{ marginBottom: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px', borderRadius: '5px', border: '1px solid gray' }} className={task.completed ? "completed" : ""}>
+              <span className="text-2xl font-thin m-1 px-3 break-words w-full">{task.text}</span>
+             
+                <button className="font text-3xl text-red-400 mx-1 " onClick={() => deleteTask(task.id)}><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                 <button className="font text-3xl  text-green-400 mx-1" onClick={() => toggleComplete(task.id)}><i class="fa fa-check" aria-hidden="true"></i></button>
                 
-              </div>
+              
             </li>
           ))}
         </div>
